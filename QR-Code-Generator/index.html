@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="./favicon.ico" rel="icon" type="image/x-icon" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <h1>QR Code Generator</h1>
+  <form>
+    <label for="text">Text to encode:</label>
+    <input type="text" id="text" name="text" placeholder="https://example.com" >
+    <button type="button" onclick="generateQRCode()">Generate QR Code</button>
+  </form>
+  <div id="qrcode"></div>
+  
+  <script>
+    function generateQRCode() {
+      var text = document.getElementById("text").value;
+      var qrcode = new QRCode("qrcode", {
+        text: text,
+        width: 256,
+        height: 256,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+  </script>
+</body>
+</html>
